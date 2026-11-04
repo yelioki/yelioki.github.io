@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Yelioki Universo Ka</title>
+<title>Yelioki</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -122,8 +122,8 @@ a { color: inherit; }
 
 .sky-grid {
   position: relative; z-index: 3;
-  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 48px; align-items: end;
-  padding-top: 40px; padding-bottom: 250px;
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: 48px; align-items: center;
+  padding-top: 40px; padding-bottom: 96px;
 }
 .sky h1 { font-size: clamp(2.7rem, 7vw, 5.4rem); font-weight: 800; }
 .sky h1 em { font-style: normal; color: var(--brand); }
@@ -132,13 +132,6 @@ a { color: inherit; }
 .sky-lede { margin-top: 22px; max-width: 34em; font-size: 1.2rem; }
 .sky-cta { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 14px; }
 .sky-hand { margin-top: 26px; font-size: 1.7rem; color: var(--fg); transform: rotate(-2deg); display: inline-block; }
-
-.tepuys { position: absolute; left: 0; right: 0; bottom: -2px; height: 300px; z-index: 1; pointer-events: none; }
-.tepuys svg { position: absolute; left: 50%; bottom: 0; width: max(1440px, 100%); height: 100%; transform: translateX(-50%); }
-.mist { position: absolute; left: -10%; right: -10%; z-index: 2; height: 90px; border-radius: 50%; filter: blur(22px); opacity: .7; pointer-events: none; }
-.mist.m1 { bottom: 120px; background: var(--sky-bot); animation: drift 26s ease-in-out infinite alternate; }
-.mist.m2 { bottom: 40px; background: var(--sky-bot); opacity: .55; animation: drift 34s ease-in-out infinite alternate-reverse; }
-@keyframes drift { from { transform: translateX(-4%); } to { transform: translateX(4%); } }
 
 .sparks { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
 .spark {
@@ -169,12 +162,6 @@ a { color: inherit; }
 .sky .slot.arch.is-filled { border: 3px solid var(--fg); background: var(--slot-bg); }
 .hero-window { justify-self: end; width: min(100%, 380px); }
 
-/* ---------- Banda del nombre ---------- */
-.band { background: var(--band-bg); color: var(--band-fg); }
-.band .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 28px; align-items: baseline; }
-.band strong { font-family: var(--font-display); font-size: 1.5rem; letter-spacing: -.01em; }
-.band span { font-size: 1.05rem; max-width: 56ch; }
-
 /* ---------- Secciones ---------- */
 .section { padding-block: 96px; }
 .section.alt { background: var(--bg-2); }
@@ -198,41 +185,37 @@ a { color: inherit; }
 }
 .note-line { margin-top: 28px; color: var(--fg-soft); font-size: .98rem; }
 
-/* Taller de Lira */
-.taller { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 64px; align-items: center; }
-.taller .slot.arch { max-width: 400px; }
-.taller h2 { font-size: clamp(2rem, 4.6vw, 3.2rem); font-weight: 800; margin: 12px 0 20px; }
-.taller p + p { margin-top: 14px; }
-.quote {
-  margin-top: 26px; padding: 6px 0 6px 22px; border-left: 4px solid var(--ocre);
-  font-family: var(--font-hand); font-weight: 700; font-size: 1.8rem; line-height: 1.2; color: var(--fg);
+/* Universo Ka: la ventana (siempre de noche) */
+.ka { position: relative; overflow: hidden; isolation: isolate; color: #F4EFE3; --spark: #EADA95;
+  background: linear-gradient(180deg, #0E2827 0%, #0B1B1A 100%); }
+.ka .wrap { padding-block: 100px; position: relative; z-index: 2; }
+.ka .eyebrow { color: #EADA95; }
+.ka-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; align-items: center; }
+.ka h2 { font-size: clamp(2.1rem, 4.8vw, 3.4rem); font-weight: 800; margin: 12px 0 22px; }
+.ka p { color: #CFE3E0; font-size: 1.1rem; max-width: 34em; }
+.ka p + p { margin-top: 14px; }
+.ka .btn-primary { background: #5CC2BC; color: #0F2423; margin-top: 30px; }
+.ka .btn-primary:hover { background: #7AD3CD; }
+.ka-window {
+  justify-self: end; width: min(100%, 360px); aspect-ratio: 4 / 5; position: relative; overflow: hidden;
+  border: 6px solid #B5A258; border-radius: 999px 999px 22px 22px;
+  background: linear-gradient(180deg, #0E2827 0%, #2B6C69 100%);
+  box-shadow: 0 0 70px rgba(92, 194, 188, .28);
 }
-.taller .btn { margin-top: 30px; }
-
-/* Camino de una chispa */
-.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; counter-reset: paso; position: relative; }
-.steps li { position: relative; padding: 0 22px 0 0; display: grid; gap: 10px; align-content: start; counter-increment: paso; }
-.steps li::before {
-  content: counter(paso); width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--brand); color: var(--brand-fg); font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; position: relative; z-index: 1;
+.ka-window svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.sparks { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.spark {
+  position: absolute; width: var(--s); height: var(--s); border-radius: 50%;
+  background: var(--spark); opacity: 0; box-shadow: 0 0 12px 3px var(--spark);
+  animation: rise var(--d) ease-in-out var(--delay) infinite;
 }
-.steps li::after { content: ""; position: absolute; top: 22px; left: 52px; right: 8px; height: 0; border-top: 2px dotted var(--ocre); }
-.steps li:last-child::after { display: none; }
-.steps h3 { font-size: 1.25rem; font-weight: 700; margin-top: 6px; }
-.steps p { color: var(--fg-soft); font-size: 1rem; }
-
-.values { margin-top: 64px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-.value { border-top: 3px solid var(--ocre); padding-top: 16px; display: grid; gap: 6px; }
-.value h3 { font-size: 1.25rem; font-weight: 700; }
-.value p { color: var(--fg-soft); font-size: 1rem; }
-
-.guardians { margin-top: 64px; }
-.guardians h3 { font-size: 1.6rem; font-weight: 700; margin-bottom: 20px; }
-.guardian-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
-.guardian { border: 2px solid var(--line); border-radius: 20px; padding: 22px; display: grid; gap: 8px; background: var(--card); align-content: start; }
-.guardian.soon { border-style: dashed; background: transparent; }
-.guardian h4 { margin: 0; font-family: var(--font-display); font-size: 1.3rem; }
-.guardian p { color: var(--fg-soft); font-size: .98rem; }
+@keyframes rise { 0% { transform: translateY(40px); opacity: 0; } 25% { opacity: .85; } 100% { transform: translateY(-120px); opacity: 0; } }
+.roadmap { margin-top: 72px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.stage { border: 1px solid rgba(244, 239, 227, .22); border-radius: 18px; padding: 24px; display: grid; gap: 10px; align-content: start; background: rgba(255, 255, 255, .04); }
+.stage.dream { border-style: dashed; }
+.stage h3 { font-size: 1.3rem; font-weight: 700; }
+.stage p { color: #CFE3E0; font-size: 1rem; }
+.ka .badge { background: #EADA95; color: #1B1A14; }
 
 /* Soy Yeli */
 .yeli { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 64px; align-items: center; }
@@ -257,26 +240,23 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
 
 /* ---------- Teléfono ---------- */
 @media (max-width: 900px) {
-  .sky-grid { grid-template-columns: minmax(0, 1fr); padding-bottom: 210px; gap: 36px; }
+  .sky-grid { grid-template-columns: minmax(0, 1fr); padding-bottom: 80px; gap: 36px; }
+  .ka-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .ka-window { justify-self: start; width: min(100%, 320px); }
+  .roadmap { grid-template-columns: minmax(0, 1fr); }
   .hero-window { justify-self: start; width: min(100%, 320px); }
-  .doors, .values, .guardian-row { grid-template-columns: minmax(0, 1fr); }
-  .taller, .yeli { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .doors { grid-template-columns: minmax(0, 1fr); }
+  .yeli { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .yeli .slot { justify-self: start; order: -1; }
-  .steps { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .steps li { grid-template-columns: 46px minmax(0, 1fr); column-gap: 16px; padding: 0; }
-  .steps li::before { grid-row: span 2; }
-  .steps li::after { display: none; }
-  .steps h3 { margin-top: 0; }
   .section { padding-block: 72px; }
 }
 @media (max-width: 640px) {
   .nav-links a:not(.btn) { display: none; }
   body { font-size: 16px; }
-  .tepuys { height: 220px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .mist, .spark { animation: none; }
+  .spark { animation: none; }
   .spark { opacity: .6; }
   .btn { transition: none; }
 }
@@ -285,17 +265,6 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
 </head>
 <body>
 <header class="sky" id="inicio">
-  <div class="sparks" id="sparks" aria-hidden="true"></div>
-  <div class="mist m1" aria-hidden="true"></div>
-  <div class="tepuys" aria-hidden="true">
-    <svg viewBox="0 0 1440 300" preserveAspectRatio="xMidYMax slice" role="presentation">
-      <path fill="var(--tepuy-far)" d="M0 300 L0 190 L110 184 L135 108 L152 100 L330 98 L350 108 L378 190 L520 196 L556 150 L596 144 L700 144 L730 160 L760 200 L900 204 L928 120 L948 110 L1120 108 L1148 120 L1180 204 L1300 196 L1340 160 L1440 156 L1440 300 Z"/>
-      <path fill="var(--tepuy-mid)" d="M0 300 L0 236 L90 230 L120 176 L138 168 L300 166 L328 180 L360 232 L560 244 L600 196 L830 192 L860 208 L890 246 L1100 250 L1130 182 L1150 174 L1300 172 L1330 188 L1360 238 L1440 234 L1440 300 Z"/>
-      <path fill="var(--tepuy-near)" d="M0 300 L0 262 C 200 236 360 270 560 258 C 780 244 980 276 1200 256 C 1320 246 1400 258 1440 252 L1440 300 Z"/>
-    </svg>
-  </div>
-  <div class="mist m2" aria-hidden="true"></div>
-
   <div class="wrap">
     <nav class="sky-nav" aria-label="Principal">
       <a class="logo" href="#inicio" aria-label="Yelioki, inicio">
@@ -304,21 +273,20 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
       </a>
       <div class="nav-links">
         <a href="#tienda">Tienda</a>
-        <a href="#taller">Taller de Lira</a>
-        <a href="#universo">Universo Ka</a>
         <a href="#yeli">Soy Yeli</a>
+        <a href="#universo">Universo Ka</a>
         <a class="btn btn-primary" href="https://payhip.com/Yelioki" target="_blank" rel="noopener">Ver la tienda</a>
       </div>
     </nav>
 
     <div class="sky-grid">
       <div>
-        <p class="eyebrow">Papelería, ilustración y modelos 3D</p>
-        <h1 style="margin-top:16px">Universo Ka, el cielo donde nacen <em>las ideas</em>.</h1>
-        <p class="sky-lede">Soy Yeli. Creo papelería, personajes y modelos 3D para imprimir, y te enseño a convertir tu chispa en algo que puedes tocar.</p>
+        <p class="eyebrow">Papelería, personajes y modelos 3D para imprimir</p>
+        <h1 style="margin-top:16px">Diseños digitales para <em>dar forma</em> a tus ideas.</h1>
+        <p class="sky-lede">Soy Yeli. Creo papelería, personajes y modelos 3D para que imprimas, regales y crees en casa.</p>
         <div class="sky-cta">
           <a class="btn btn-primary" href="https://payhip.com/Yelioki" target="_blank" rel="noopener">Ver la tienda digital</a>
-          <a class="btn btn-ghost" href="https://yelioki.github.io/Universoka/" target="_blank" rel="noopener">Entrar al Universo Ka</a>
+          <a class="btn btn-ghost" href="#universo">Asomarme a Universo Ka</a>
         </div>
         <p class="sky-hand hand">creer para crear ✦</p>
       </div>
@@ -332,13 +300,6 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
     </div>
   </div>
 </header>
-
-<div class="band">
-  <div class="wrap">
-    <strong>Ka significa «cielo».</strong>
-    <span>Es una palabra de la lengua pemón. Los tepuyes que ves al fondo son un homenaje a esa tierra y a su cielo.</span>
-  </div>
-</div>
 
 <main>
   <section class="section" id="tienda" aria-labelledby="t-tienda">
@@ -370,69 +331,17 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
           </div>
         </article>
         <article class="door">
-          <figure class="slot card-img" data-slot="biblioteca" data-alt="Libros de la Biblioteca de Universo Ka">
-            <div class="slot-hint"><b>Tu imagen aquí</b><small>Portada de un libro, 16:10</small></div>
+          <figure class="slot card-img" data-slot="recursos" data-alt="Diseños y recursos creativos de Yelioki">
+            <div class="slot-hint"><b>Tu imagen aquí</b><small>Diseños y recursos, 16:10</small></div>
           </figure>
           <div class="door-body">
-            <span class="badge">Próximamente</span>
-            <h3>Libros de la Biblioteca</h3>
-            <p>Lo que aprenden los Guardianes, escrito paso a paso, con los errores incluidos, porque también enseñan.</p>
+            <h3>Diseños y recursos creativos</h3>
+            <p>Personajes, ilustraciones y materiales para que tus proyectos tengan identidad desde el primer día.</p>
+            <a class="btn btn-primary" href="https://payhip.com/Yelioki" target="_blank" rel="noopener">Explorar diseños</a>
           </div>
         </article>
       </div>
       <p class="note-line">Mis modelos 3D también están en Cults3D.</p>
-    </div>
-  </section>
-
-  <section class="section alt" id="taller" aria-labelledby="t-taller">
-    <div class="wrap taller">
-      <figure class="slot arch" data-slot="lira" data-alt="Lira, Guardiana del Taller de Papelería Viva">
-        <div class="slot-hint">
-          <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="9" width="36" height="30" rx="4"/><circle cx="17" cy="20" r="4"/><path d="M6 33l11-9 8 7 6-5 11 9"/></svg>
-          <b>Tu imagen aquí</b>
-          <small>Lira, la Guardiana, vertical 4:5</small>
-        </div>
-      </figure>
-      <div>
-        <p class="eyebrow">Primer Taller abierto</p>
-        <h2 id="t-taller">Taller de Papelería Viva</h2>
-        <p>Lo dirige Lira, Guardiana de un oficio muy simple: transformar ideas en objetos que pueden tocarse. Una invitación, un recuerdo, un regalo, el comienzo de una historia.</p>
-        <p>Lira no hace el trabajo por ti. Pregunta, escucha, observa y te guía paso a paso, sin palabras difíciles, para que algún día crees por tu cuenta.</p>
-        <p class="quote">«Una hoja de papel nunca es solamente una hoja.»</p>
-        <a class="btn btn-primary" href="https://payhip.com/Yelioki" target="_blank" rel="noopener">Entrar al Taller de Lira</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="universo" aria-labelledby="t-universo">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow">Universo Ka</p>
-        <h2 id="t-universo">Un lugar donde las ideas nacen antes de existir</h2>
-        <p>Cada dibujo, invitación, modelo 3D o historia empieza aquí como una pequeña chispa. Las chispas buscan un lugar donde crecer, y ese lugar son los Talleres.</p>
-      </div>
-
-      <ol class="steps" aria-label="El camino de una chispa">
-        <li><h3>Llega tu chispa</h3><p>Imaginas algo con ilusión y aparece una idea nueva.</p></li>
-        <li><h3>Entras al Taller</h3><p>Un Guardián te recibe y te hace preguntas.</p></li>
-        <li><h3>Aprendes haciendo</h3><p>Avanzas paso a paso, a tu ritmo, con ejemplos claros.</p></li>
-        <li><h3>Nace tu creación</h3><p>La idea toma forma y todo Universo Ka brilla un poco más.</p></li>
-      </ol>
-
-      <div class="values">
-        <div class="value"><h3>Nunca copiamos</h3><p>Cada creación parte de una idea propia, con identidad.</p></div>
-        <div class="value"><h3>Ninguna idea se desanima</h3><p>Detrás de cada proyecto hay una persona. Toda idea se escucha primero.</p></div>
-        <div class="value"><h3>No hay fracaso, hay experimentos</h3><p>Un error comprendido deja de ser error y se vuelve conocimiento.</p></div>
-      </div>
-
-      <div class="guardians">
-        <h3>Los Guardianes</h3>
-        <div class="guardian-row">
-          <div class="guardian"><span class="badge">Abierto</span><h4>Lira</h4><p>Taller de Papelería Viva. Convierte ideas en objetos que se tocan.</p></div>
-          <div class="guardian soon"><span class="badge">Pronto</span><h4>Un nuevo Guardián</h4><p>Otro Taller está por abrir sus puertas.</p></div>
-          <div class="guardian soon"><span class="badge">Pronto</span><h4>Un nuevo Guardián</h4><p>La Biblioteca sigue creciendo con cada experiencia.</p></div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -441,8 +350,7 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
       <div>
         <p class="eyebrow">Quién está detrás</p>
         <h2 id="t-yeli">Soy Yeli</h2>
-        <p>Dibujo, diseño y creo personajes. Convierto ideas en papelería, ilustraciones y modelos 3D que puedes tocar.</p>
-        <p>Trabajo sola, pieza por pieza, y todo pasa por mis manos antes de llegar a ti.</p>
+        <p>Diseño y creo personajes. Convierto ideas en papelería, diseños y modelos 3D.</p>
         <p>Mi sueño es vivir de crear desde cualquier lugar del mundo. Cada archivo que te llevas me ayuda a sostenerlo, y te lo agradezco de corazón.</p>
         <p class="motto hand">Creer para crear</p>
       </div>
@@ -455,12 +363,59 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
       </figure>
     </div>
   </section>
+
+  <section class="ka" id="universo" aria-labelledby="t-universo">
+    <div class="wrap">
+      <div class="ka-grid">
+        <div>
+          <p class="eyebrow">Una ventana a lo que viene</p>
+          <h2 id="t-universo">Universo Ka, el cielo donde nacen las ideas</h2>
+          <p>Es mi sueño y lo voy construyendo poco a poco. Ka viene de Ka'k, «cielo» en lengua pemón, que acorté a Ka.</p>
+          <p>Será un lugar bajo los tepuyes donde las ideas nacen como chispas y crecen en Talleres, con Guardianes que te enseñan a crear por ti mismo.</p>
+          <a class="btn btn-primary" href="https://yelioki.github.io/Universoka/" target="_blank" rel="noopener">Asomarme a Universo Ka</a>
+        </div>
+        <div class="ka-window" role="img" aria-label="Una ventana en arco que muestra un cielo nocturno sobre tepuyes">
+          <div class="sparks" id="sparks" aria-hidden="true"></div>
+          <svg viewBox="0 0 360 450" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+            <g fill="#F4EFE3">
+              <circle cx="50" cy="60" r="1.6" opacity=".9"/><circle cx="120" cy="38" r="1.2" opacity=".7"/><circle cx="200" cy="82" r="1.8" opacity=".9"/>
+              <circle cx="270" cy="50" r="1.3" opacity=".8"/><circle cx="318" cy="108" r="1.6" opacity=".7"/><circle cx="84" cy="130" r="1.1" opacity=".6"/>
+              <circle cx="160" cy="150" r="1.4" opacity=".8"/><circle cx="236" cy="142" r="1" opacity=".6"/><circle cx="300" cy="176" r="1.2" opacity=".7"/>
+              <circle cx="30" cy="190" r="1.3" opacity=".7"/><circle cx="182" cy="26" r="1" opacity=".6"/>
+            </g>
+            <circle cx="268" cy="118" r="20" fill="#EADA95" opacity=".92"/>
+            <path fill="#1F5654" d="M0 450 V300 L40 296 L52 250 L60 244 H150 L160 252 L172 300 L210 304 L224 270 L230 264 H330 L342 272 L352 304 L360 302 V450 Z"/>
+            <path fill="#14403F" d="M0 450 V350 L30 346 L44 312 L52 306 H120 L130 314 L142 350 L230 358 L246 330 L254 324 H340 L348 332 L360 352 V450 Z"/>
+            <path fill="#0C1008" d="M0 450 V402 C60 386 120 412 190 400 C260 388 310 406 360 398 V450 Z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="roadmap">
+        <div class="stage">
+          <span class="badge">Hoy · en pruebas</span>
+          <h3>El Llamado y el portal de Lira</h3>
+          <p>Ya puedes asomarte y conocer a Lira, la primera Guardiana, que enseña papelería. Todavía está aprendiendo a conversar y a veces se cansa.</p>
+        </div>
+        <div class="stage">
+          <span class="badge">Pronto</span>
+          <h3>Más Guardianes</h3>
+          <p>Orun (modelado 3D), Numa (mockups) y Kael (inteligencia artificial) están por llegar a sus Talleres.</p>
+        </div>
+        <div class="stage dream">
+          <span class="badge">El sueño</span>
+          <h3>Un mundo para recorrer</h3>
+          <p>Un lugar inmersivo bajo los tepuyes, donde cada persona crea su avatar, camina entre Talleres y tiendas y aprende a crear.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <section class="closing" aria-labelledby="t-cierre">
   <div class="wrap">
-    <h2 id="t-cierre">Tu chispa ya tiene un lugar</h2>
-    <p>Mira la tienda, entra a un Taller o acompáñame mientras creo. Muestro el proceso en redes.</p>
+    <h2 id="t-cierre">Tu idea ya tiene un lugar</h2>
+    <p>Mira la tienda o acompáñame mientras creo. Muestro el proceso en redes.</p>
     <div class="row">
       <a class="btn btn-primary" href="https://payhip.com/Yelioki" target="_blank" rel="noopener">Ver la tienda digital</a>
       <a class="btn btn-ghost" href="https://www.instagram.com/yelioki" target="_blank" rel="noopener">Instagram @yelioki</a>
@@ -471,7 +426,7 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
 <footer>
   <div class="wrap">
     <span>© <span id="year">2026</span> Yelioki · Creer para crear</span>
-    <span>Ka significa «cielo» en lengua pemón.</span>
+    <span>Ka, del pemón Ka'k, «cielo».</span>
   </div>
 </footer>
 
@@ -486,8 +441,7 @@ var IMAGENES = {
   hero: "",         // la muñequita en el arco principal (vertical 4:5)
   imprimibles: "",  // tarjeta de papelería (horizontal 16:10)
   modelos3d: "",    // tarjeta de modelos 3D (horizontal 16:10)
-  biblioteca: "",   // tarjeta de libros (horizontal 16:10)
-  lira: "",         // Lira, Guardiana (vertical 4:5)
+  recursos: "",     // tarjeta de diseños y recursos (horizontal 16:10)
   yeli: ""          // tu foto o ilustración (vertical 4:5)
 };
 
