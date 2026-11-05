@@ -271,6 +271,68 @@ footer { background: var(--forest); color: #CFC8B2; border-top: 1px solid rgba(2
 footer { padding-bottom: 64px; }
 footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-size: .92rem; }
 
+/* Invitaciones digitales */
+.inv-head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; align-items: start; }
+.inv-head .section-head { margin-bottom: 0; }
+.mini-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 18px; counter-reset: paso; }
+.mini-steps li { counter-increment: paso; display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 16px; align-items: start; }
+.mini-steps li::before {
+  content: counter(paso); grid-row: span 2; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--brand); color: var(--brand-fg); font-family: var(--font-display); font-weight: 800; font-size: 1.15rem;
+}
+.mini-steps h3 { font-size: 1.15rem; font-weight: 700; }
+.mini-steps p { color: var(--fg-soft); font-size: 1rem; }
+.inv-grid { margin-top: 52px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+.inv-card { display: grid; gap: 10px; align-content: start; }
+.phone {
+  position: relative; aspect-ratio: 9 / 16; border-radius: 22px; overflow: hidden;
+  border: 2px solid var(--line); background: var(--slot-bg); box-shadow: var(--shadow);
+}
+.phone img, .phone video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.phone video { cursor: pointer; }
+.phone .tag {
+  position: absolute; left: 10px; top: 10px; z-index: 2; padding: .28rem .65rem; border-radius: 999px;
+  font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; background: rgba(20, 20, 15, .74); color: #fff;
+}
+.inv-card h3 { font-size: 1.2rem; font-weight: 700; margin-top: 4px; }
+.inv-cta { margin-top: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
+.inv-cta p { color: var(--fg-soft); }
+
+/* Lira te guía */
+.lira { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 56px; align-items: start; }
+.lira-emblem {
+  width: 96px; height: 96px; border-radius: 50%; margin-bottom: 22px; overflow: hidden; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--ocre), var(--turq)); color: #29281F; font-family: var(--font-display); font-weight: 800; font-size: 2.6rem;
+}
+.lira-emblem img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.lira-intro h2 { font-size: clamp(2.1rem, 4.6vw, 3.2rem); font-weight: 800; margin: 12px 0 18px; }
+.lira-intro p { color: var(--fg-soft); font-size: 1.1rem; max-width: 30em; }
+.lira-intro p + p { margin-top: 14px; font-size: 1rem; }
+.lira-panel { background: var(--card); border: 2px solid var(--line); border-radius: 24px; padding: 30px; min-height: 340px; display: grid; gap: 22px; align-content: start; box-shadow: var(--shadow); }
+.lira-say { font-family: var(--font-hand); font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.2rem); line-height: 1.2; outline: none; }
+.lira-say.fin { font-size: clamp(1.4rem, 2.6vw, 1.75rem); }
+.lira-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.opt {
+  font: inherit; font-weight: 600; color: var(--fg); text-align: left; cursor: pointer; padding: .95rem 1.15rem;
+  background: var(--bg); border: 2px solid var(--line); border-radius: 16px; line-height: 1.35;
+  transition: border-color .15s ease, transform .15s ease;
+}
+.opt:hover { border-color: var(--brand); transform: translateY(-2px); }
+.lira-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.lira-nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.link-btn { font: inherit; font-size: .95rem; font-weight: 600; color: var(--brand); background: none; border: 0; padding: 0; cursor: pointer; text-underline-offset: 4px; }
+.link-btn:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .inv-head { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .inv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .lira { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+}
+@media (max-width: 520px) {
+  .lira-options { grid-template-columns: minmax(0, 1fr); }
+  .lira-panel { padding: 22px; }
+}
+
 /* ---------- Teléfono ---------- */
 @media (max-width: 900px) {
   .sky-grid { grid-template-columns: minmax(0, 1fr); padding-bottom: 80px; gap: 36px; }
@@ -314,6 +376,8 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
       </a>
       <div class="nav-links">
         <a href="#tienda">Tienda</a>
+        <a href="#invitaciones">Invitaciones</a>
+        <a href="#lira">Lira</a>
         <a href="#yeli">Soy Yelioki</a>
         <a href="#universo">Universo Ka</a>
         <a class="btn btn-primary" href="#tienda">Ver la tienda</a>
@@ -398,6 +462,70 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
     </div>
   </section>
 
+    <section class="section alt" id="invitaciones" aria-labelledby="t-inv">
+    <div class="wrap">
+      <div class="inv-head">
+        <div class="section-head">
+          <p class="eyebrow">Invitaciones digitales</p>
+          <h2 id="t-inv">Invitaciones listas para compartir por WhatsApp</h2>
+          <p>Elige un diseño de los que ves aquí y mándame los datos de tu celebración. Yo la edito por ti y te la entrego lista para enviar a tus invitados, en imagen o en video.</p>
+        </div>
+        <ol class="mini-steps">
+          <li><h3>Elige tu diseño</h3><p>Mira los ejemplos y dime cuál te gustó.</p></li>
+          <li><h3>Mándame tus datos</h3><p>Nombre, fecha, hora, lugar y las fotos que quieras, por WhatsApp.</p></li>
+          <li><h3>Recibe tu invitación</h3><p>La edito con tu información y te la entrego lista para compartir.</p></li>
+        </ol>
+      </div>
+      <div class="inv-grid">
+        <article class="inv-card">
+          <div class="phone"><span class="tag">Imagen</span><img src="inv-estatica.jpg" alt="Cumpleaños: invitación digital de ejemplo" loading="lazy"></div>
+          <h3>Cumpleaños</h3>
+          <a class="ask" href="https://wa.me/56932938800?text=Hola%2C%20Yelioki.%20Me%20gust%C3%B3%20la%20invitaci%C3%B3n%20de%20cumplea%C3%B1os%20en%20imagen.%20Quiero%20una%20para%20mi%20celebraci%C3%B3n." target="_blank" rel="noopener">Quiero una así</a>
+        </article>
+        <article class="inv-card">
+          <div class="phone"><span class="tag">Video</span><video src="inv-15.mp4" poster="inv-15.jpg" muted loop playsinline preload="none" aria-label="15 años: invitación digital en video de ejemplo"></video></div>
+          <h3>15 años</h3>
+          <a class="ask" href="https://wa.me/56932938800?text=Hola%2C%20Yelioki.%20Me%20gust%C3%B3%20la%20invitaci%C3%B3n%20de%2015%20a%C3%B1os%20en%20video.%20Quiero%20una%20para%20mi%20celebraci%C3%B3n." target="_blank" rel="noopener">Quiero una así</a>
+        </article>
+        <article class="inv-card">
+          <div class="phone"><span class="tag">Video</span><video src="inv-boda.mp4" poster="inv-boda.jpg" muted loop playsinline preload="none" aria-label="Boda: invitación digital en video de ejemplo"></video></div>
+          <h3>Boda</h3>
+          <a class="ask" href="https://wa.me/56932938800?text=Hola%2C%20Yelioki.%20Me%20gust%C3%B3%20la%20invitaci%C3%B3n%20de%20boda%20en%20video.%20Quiero%20una%20para%20mi%20celebraci%C3%B3n." target="_blank" rel="noopener">Quiero una así</a>
+        </article>
+        <article class="inv-card">
+          <div class="phone"><span class="tag">Video</span><video src="inv-baby.mp4" poster="inv-baby.jpg" muted loop playsinline preload="none" aria-label="Baby shower: invitación digital en video de ejemplo"></video></div>
+          <h3>Baby shower</h3>
+          <a class="ask" href="https://wa.me/56932938800?text=Hola%2C%20Yelioki.%20Me%20gust%C3%B3%20la%20invitaci%C3%B3n%20de%20baby%20shower%20en%20video.%20Quiero%20una%20para%20mi%20celebraci%C3%B3n." target="_blank" rel="noopener">Quiero una así</a>
+        </article>
+      </div>
+      <div class="inv-cta">
+        <a class="btn btn-wa" href="https://wa.me/56932938800?text=Hola%2C%20Yelioki.%20Vi%20tus%20invitaciones%20digitales%20y%20quisiera%20pedir%20una." target="_blank" rel="noopener">Pedir mi invitación por WhatsApp</a>
+        <a class="btn btn-outline" href="https://www.tiktok.com/@yeli0ki" target="_blank" rel="noopener">Ver más ejemplos en TikTok</a>
+        <p>Te cuento precios y tiempos por WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="lira" aria-labelledby="t-lira">
+    <div class="wrap lira">
+      <div class="lira-intro">
+        <div class="lira-emblem" id="lira-emblem" aria-hidden="true">L</div>
+        <p class="eyebrow">Tu guía</p>
+        <h2 id="t-lira">Lira te guía</h2>
+        <p>¿No sabes por dónde empezar? Cuéntale a Lira qué quieres crear y ella te muestra el camino hacia el diseño que mejor te acompaña.</p>
+        <p>Lira es la Guardiana del Taller de Papelería Viva, en Universo Ka.</p>
+      </div>
+      <div class="lira-panel" id="lira-panel">
+        <p class="lira-say" id="lira-say" tabindex="-1" aria-live="polite">¡Hola! Soy Lira. Cuéntame, ¿qué te gustaría crear hoy?</p>
+        <div class="lira-options" id="lira-options"></div>
+        <div class="lira-nav">
+          <button class="link-btn" id="lira-back" type="button" hidden>← Volver</button>
+          <button class="link-btn" id="lira-restart" type="button" hidden>Empezar de nuevo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section alt" id="yeli" aria-labelledby="t-yeli">
     <div class="wrap yeli">
       <div>
@@ -446,9 +574,9 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
 
       <div class="roadmap">
         <div class="stage">
-          <span class="badge">Hoy · en pruebas</span>
-          <h3>El Llamado y el portal de Lira</h3>
-          <p>Ya puedes asomarte y conocer a Lira, la primera Guardiana, que enseña papelería. Todavía está aprendiendo a conversar y a veces se cansa.</p>
+          <span class="badge">Hoy</span>
+          <h3>El Llamado y Lira, tu guía</h3>
+          <p>Ya puedes asomarte a Universo Ka y pedirle a Lira, la primera Guardiana, que te guíe por mis plantillas y diseños.</p>
         </div>
         <div class="stage">
           <span class="badge">Pronto</span>
@@ -503,7 +631,8 @@ var IMAGENES = {
   imprimibles: "imprimibles.jpg",  // tarjeta de papelería (horizontal 16:10)
   modelos3d: "modelos3d.jpg",    // tarjeta de modelos 3D (horizontal 16:10)
   recursos: "recursos.jpg",     // tarjeta de diseños y recursos (horizontal 16:10)
-  yeli: "yeli.jpg"   // tu foto o ilustración (vertical 4:5)
+  yeli: "yeli.jpg",   // tu foto o ilustración (vertical 4:5)
+  lira: ""           // Lira, la Guardiana (cuadrada, opcional)
 };
 
 (function () {
@@ -562,5 +691,113 @@ var IMAGENES = {
   var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
 })();
 </script>
+<script>
+/* Guía de Lira (sin IA: preguntas y respuestas escritas con su voz) y videos de invitaciones */
+(function () {
+  var NUM = "56932938800";
+  var PAYHIP = "https://payhip.com/Yelioki", CULTS = "https://cults3d.com/@yelioki";
+  function wa(t) { return "https://wa.me/" + NUM + "?text=" + encodeURIComponent(t); }
+  function saludo(t) { return "Hola, Yelioki. Lira me guió hasta aquí. " + t; }
+
+  /* Cada paso: lo que dice Lira y sus opciones [texto, destino, dato que se recuerda].
+     Los pasos con "fin" muestran botones de acción. */
+  var PASOS = {
+    inicio: { dice: "¡Hola! Soy Lira. Cuéntame, ¿qué te gustaría crear hoy?", op: [
+      ["Una invitación digital", "inv1"], ["Papelería para imprimir", "pap1"],
+      ["Un modelo 3D para imprimir", "d3"], ["Algo especial, a mi manera", "esp"] ] },
+    inv1: { dice: "¡Qué bonito! ¿Para qué celebración es?", clave: "fiesta", op: [
+      ["Un cumpleaños", "inv2", "cumpleaños"], ["Unos 15 años", "inv2", "15 años"], ["Una boda", "inv2", "boda"],
+      ["Un baby shower", "inv2", "baby shower"], ["Otra celebración", "inv2", "celebración"] ] },
+    inv2: { dice: "¿Cómo la imaginas?", clave: "formato", op: [
+      ["En imagen", "fin_inv", "en imagen"], ["En video", "fin_inv", "en video"] ] },
+    pap1: { dice: "Me encanta el papel. ¿Para qué lo quieres?", clave: "uso", op: [
+      ["Para una fiesta o celebración", "fin_pap", "una fiesta o celebración"],
+      ["Para un regalo o recuerdo", "fin_pap", "un regalo o recuerdo"],
+      ["Para decorar mi espacio", "fin_pap", "decorar mi espacio"] ] },
+    d3: { dice: "Las ideas también pueden tener volumen. ¿Ya tienes impresora 3D?", op: [
+      ["Sí, ya tengo", "fin_3d_si"], ["Todavía no", "fin_3d_no"] ] },
+    esp: { fin: true, dice: "Cada idea merece ser escuchada. Cuéntale la tuya a Yelioki y vean juntas qué se puede hacer.",
+      botones: function () { return [["Contarle mi idea", wa(saludo("Tengo una idea y quisiera contártela.")), "btn btn-wa"]]; } },
+    fin_inv: { fin: true,
+      dice: function (d) { return "Entonces buscas una invitación de " + d.fiesta + " " + d.formato + ". Mira los ejemplos y, cuando elijas uno, mándale a Yelioki los datos de tu celebración. Ella la edita por ti."; },
+      botones: function (d) { return [
+        ["Pedir mi invitación por WhatsApp", wa(saludo("Quiero una invitación de " + d.fiesta + " " + d.formato + ".")), "btn btn-wa"],
+        ["Ver los ejemplos", "#invitaciones", "btn btn-outline"] ]; } },
+    fin_pap: { fin: true,
+      dice: function (d) { return "Para " + d.uso + ", mira las colecciones de papelería. Cada una tiene su propia historia y viene lista para descargar e imprimir."; },
+      botones: function (d) { return [
+        ["Ver colecciones en Payhip", PAYHIP, "btn btn-primary"],
+        ["Ayúdame a elegir", wa(saludo("Busco papelería para " + d.uso + ". ¿Me ayudas a elegir?")), "btn btn-outline"] ]; } },
+    fin_3d_si: { fin: true, dice: "Qué bueno. Los modelos vienen listos para imprimir. Mira las colecciones, como El Bosque de las Almas Perdidas.",
+      botones: function () { return [
+        ["Ver modelos en Cults3D", CULTS, "btn btn-primary"],
+        ["Preguntar por WhatsApp", wa(saludo("Quisiera preguntarte por los modelos 3D.")), "btn btn-outline"] ]; } },
+    fin_3d_no: { fin: true, dice: "No pasa nada, todos empezamos así. Mira los modelos y, si tienes dudas sobre cómo imprimirlos, pregúntale a Yelioki.",
+      botones: function () { return [
+        ["Ver modelos en Cults3D", CULTS, "btn btn-primary"],
+        ["Preguntarle a Yelioki", wa(saludo("Todavía no tengo impresora 3D y quisiera preguntarte cómo imprimir tus modelos.")), "btn btn-outline"] ]; } }
+  };
+
+  var say = document.getElementById("lira-say"), box = document.getElementById("lira-options"),
+      back = document.getElementById("lira-back"), restart = document.getElementById("lira-restart");
+  if (say && box) {
+    var ruta = "inicio", pila = [], datos = {};
+
+    function render(enfocar) {
+      var p = PASOS[ruta];
+      say.textContent = typeof p.dice === "function" ? p.dice(datos) : p.dice;
+      say.classList.toggle("fin", !!p.fin);
+      box.innerHTML = "";
+      if (p.fin) {
+        box.className = "lira-actions";
+        p.botones(datos).forEach(function (b) {
+          var a = document.createElement("a");
+          a.textContent = b[0]; a.href = b[1]; a.className = b[2];
+          if (b[1].charAt(0) !== "#") { a.target = "_blank"; a.rel = "noopener"; }
+          box.appendChild(a);
+        });
+      } else {
+        box.className = "lira-options";
+        p.op.forEach(function (o) {
+          var b = document.createElement("button");
+          b.type = "button"; b.className = "opt"; b.textContent = o[0];
+          b.addEventListener("click", function () {
+            if (o[2] && p.clave) datos[p.clave] = o[2];
+            pila.push(ruta); ruta = o[1]; render(true);
+          });
+          box.appendChild(b);
+        });
+      }
+      back.hidden = pila.length === 0; restart.hidden = ruta === "inicio";
+      if (enfocar) say.focus({ preventScroll: true });
+    }
+    back.addEventListener("click", function () { ruta = pila.pop() || "inicio"; render(true); });
+    restart.addEventListener("click", function () { ruta = "inicio"; pila = []; datos = {}; render(true); });
+    render(false);
+  }
+
+  /* Imagen de Lira (opcional, desde IMAGENES.lira) */
+  var em = document.getElementById("lira-emblem");
+  if (em && window.IMAGENES && IMAGENES.lira) { em.textContent = ""; var im = document.createElement("img"); im.src = IMAGENES.lira; im.alt = ""; em.appendChild(im); }
+
+  /* Videos de invitaciones: se reproducen solo cuando se ven, sin sonido */
+  var vids = [].slice.call(document.querySelectorAll(".phone video"));
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) { vids.forEach(function (v) { v.controls = true; }); }
+  else if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); } else { v.pause(); }
+      });
+    }, { threshold: 0.5 });
+    vids.forEach(function (v) {
+      io.observe(v);
+      v.addEventListener("click", function () { if (v.paused) { v.play(); } else { v.pause(); } });
+    });
+  }
+})();
+</script>
+
 </body>
 </html>
