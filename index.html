@@ -228,6 +228,27 @@ a { color: inherit; }
 .stage p { color: #CFE3E0; font-size: 1rem; }
 .ka .badge { background: #EADA95; color: #1B1A14; }
 
+
+/* WhatsApp */
+.ask { justify-self: start; font-weight: 600; color: var(--brand); text-underline-offset: 4px; }
+.ask:hover { text-decoration: underline; }
+.ask-strip { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; justify-content: space-between; padding: 28px; border-radius: 20px; background: var(--card); border: 2px solid var(--line); }
+.ask-strip h3 { font-size: 1.4rem; font-weight: 700; }
+.ask-strip p { color: var(--fg-soft); margin-top: 6px; max-width: 34em; }
+.ask-strip .row { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn-wa { background: #1B7F4B; color: #fff; }
+.btn-wa:hover { background: #156639; transform: translateY(-2px); }
+.btn-outline { border-color: var(--fg); color: var(--fg); background: transparent; }
+.btn-outline:hover { background: var(--bg-2); transform: translateY(-2px); }
+.wa-float {
+  position: fixed; z-index: 50; display: flex; align-items: center; gap: 8px;
+  right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  padding: .75rem 1.1rem; border-radius: 999px; background: #1B7F4B; color: #fff; text-decoration: none;
+  font-weight: 600; box-shadow: 0 10px 24px -8px rgba(0, 0, 0, .45);
+}
+.wa-float:hover { background: #156639; }
+.wa-float svg { width: 22px; height: 22px; flex: none; }
+
 /* Soy Yeli */
 .yeli { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 64px; align-items: center; }
 .yeli h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; margin: 12px 0 22px; }
@@ -247,6 +268,7 @@ a { color: inherit; }
 .closing .btn-ghost { color: #F4EFE3; }
 
 footer { background: var(--forest); color: #CFC8B2; border-top: 1px solid rgba(244, 239, 227, .18); }
+footer { padding-bottom: 64px; }
 footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; font-size: .92rem; }
 
 /* ---------- Teléfono ---------- */
@@ -337,6 +359,7 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
             <h3>Papelería e imprimibles</h3>
             <p>Invitaciones, recuerdos y detalles listos para descargar e imprimir. Cada colección tiene su propia historia.</p>
             <a class="btn btn-primary" href="https://payhip.com/Yelioki" target="_blank" rel="noopener">Ver colecciones en Payhip</a>
+            <a class="ask" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20me%20interesa%20la%20papeler%C3%ADa%20e%20imprimibles.%20%C2%BFMe%20cuentas%20m%C3%A1s%3F" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
           </div>
         </article>
         <article class="door">
@@ -347,6 +370,7 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
             <h3>Modelos 3D para imprimir</h3>
             <p>Archivos STL para tu impresora 3D, diseñados para imprimirse bien y verse con identidad propia.</p>
             <a class="btn btn-primary" href="https://cults3d.com/@yelioki" target="_blank" rel="noopener">Ver modelos en Cults3D</a>
+            <a class="ask" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20me%20interesan%20los%20modelos%203D%20para%20imprimir.%20%C2%BFMe%20cuentas%20m%C3%A1s%3F" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
           </div>
         </article>
         <article class="door">
@@ -357,8 +381,19 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
             <h3>Diseños y recursos creativos</h3>
             <p>Personajes, ilustraciones y materiales para que tus proyectos tengan identidad desde el primer día.</p>
             <a class="btn btn-primary" href="https://payhip.com/Yelioki" target="_blank" rel="noopener">Explorar en Payhip</a>
+            <a class="ask" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20me%20interesan%20los%20dise%C3%B1os%20y%20recursos%20creativos.%20%C2%BFMe%20cuentas%20m%C3%A1s%3F" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
           </div>
         </article>
+      </div>
+      <div class="ask-strip">
+        <div>
+          <h3>¿Buscas algo especial?</h3>
+          <p>Pregúntame por un diseño, un pedido personalizado o cualquier duda. Te respondo por WhatsApp.</p>
+        </div>
+        <div class="row">
+          <a class="btn btn-wa" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20dise%C3%B1os." target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
+          <a class="btn btn-outline" href="https://wa.me/c/56932938800" target="_blank" rel="noopener">Ver catálogo en WhatsApp</a>
+        </div>
       </div>
     </div>
   </section>
@@ -438,11 +473,16 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
     <div class="row">
       <a class="btn btn-primary" href="https://payhip.com/Yelioki" target="_blank" rel="noopener">Imprimibles en Payhip</a>
       <a class="btn btn-primary" href="https://cults3d.com/@yelioki" target="_blank" rel="noopener">Modelos 3D en Cults3D</a>
+      <a class="btn btn-wa" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20dise%C3%B1os." target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
       <a class="btn btn-ghost" href="https://www.instagram.com/yelioki" target="_blank" rel="noopener">Instagram @yelioki</a>
       <a class="btn btn-ghost" href="https://www.tiktok.com/@yeli0ki" target="_blank" rel="noopener">TikTok @yeli0ki</a>
     </div>
   </div>
 </section>
+<a class="wa-float" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20tus%20dise%C3%B1os." target="_blank" rel="noopener" aria-label="Escribir a Yelioki por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+  <span>WhatsApp</span>
+</a>
 <footer>
   <div class="wrap">
     <span>© <span id="year">2026</span> Yelioki · Creer para crear</span>
