@@ -190,6 +190,13 @@ a { color: inherit; }
 .door h3 { font-size: 1.5rem; font-weight: 700; }
 .door p { color: var(--fg-soft); }
 .door .btn { margin-top: 8px; justify-self: start; }
+.doors-4 { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
+.doors-4 .door { flex: 0 0 calc((100% - 4 * 18px) / 5); min-width: 0; }
+.doors-4 .door h3 { font-size: 1.25rem; }
+@media (max-width: 1100px) { .doors-4 .door { flex-basis: calc((100% - 2 * 18px) / 3); } }
+@media (max-width: 760px) { .doors-4 .door { flex-basis: calc((100% - 18px) / 2); } }
+@media (max-width: 560px) { .doors-4 .door { flex-basis: 100%; } }
+
 .badge {
   justify-self: start; font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
   padding: .3rem .75rem; border-radius: 999px; background: var(--band-bg); color: var(--band-fg);
@@ -377,6 +384,7 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
       <div class="nav-links">
         <a href="#tienda">Tienda</a>
         <a href="#invitaciones">Invitaciones</a>
+        <a href="#fisicos">En físico</a>
         <a href="#lira">Lira</a>
         <a href="#yeli">Soy Yelioki</a>
         <a href="#universo">Universo Ka</a>
@@ -502,6 +510,72 @@ footer .wrap { padding-block: 26px; display: flex; flex-wrap: wrap; gap: 8px 24p
         <a class="btn btn-wa" href="https://wa.me/56932938800?text=Hola%2C%20Yelioki.%20Vi%20tus%20invitaciones%20digitales%20y%20quisiera%20pedir%20una." target="_blank" rel="noopener">Pedir mi invitación por WhatsApp</a>
         <a class="btn btn-outline" href="https://www.tiktok.com/@yeli0ki" target="_blank" rel="noopener">Ver más ejemplos en TikTok</a>
         <p>Te cuento precios y tiempos por WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="fisicos" aria-labelledby="t-fis">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Hecho en físico</p>
+        <h2 id="t-fis">Para tu fiesta, en tus manos</h2>
+        <p>Además de lo digital, hago productos físicos a pedido: invitaciones, stickers, toppers, poleras, tazas y piezas 3D. Cuéntame tu idea y lo creamos juntas.</p>
+      </div>
+      <div class="doors doors-4">
+        <article class="door">
+          <figure class="slot card-img" data-slot="fisinv" data-alt="Invitaciones impresas">
+            <div class="slot-hint"><b>Tu imagen aquí</b><small>Invitaciones impresas, 16:10</small></div>
+          </figure>
+          <div class="door-body">
+            <h3>Invitaciones impresas</h3>
+            <p>Invitaciones en papel, listas para entregar en tu fiesta o evento.</p>
+            <a class="btn btn-wa" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20me%20interesan%20las%20invitaciones%20impresas.%20%C2%BFMe%20cuentas%20m%C3%A1s%3F" target="_blank" rel="noopener">Lo quiero</a>
+          </div>
+        </article>
+        <article class="door">
+          <figure class="slot card-img" data-slot="stickers" data-alt="Stickers para cotillón">
+            <div class="slot-hint"><b>Tu imagen aquí</b><small>Stickers para cotillón, 16:10</small></div>
+          </figure>
+          <div class="door-body">
+            <h3>Stickers para cotillón</h3>
+            <p>Stickers con tu tema para sellar bolsitas, cajitas y recuerdos de la fiesta.</p>
+            <a class="btn btn-wa" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20quiero%20stickers%20para%20cotill%C3%B3n.%20%C2%BFMe%20cuentas%20m%C3%A1s%3F" target="_blank" rel="noopener">Lo quiero</a>
+          </div>
+        </article>
+        <article class="door">
+          <figure class="slot card-img" data-slot="toppers" data-alt="Toppers para tortas">
+            <div class="slot-hint"><b>Tu imagen aquí</b><small>Toppers para tortas, 16:10</small></div>
+          </figure>
+          <div class="door-body">
+            <h3>Toppers para tortas</h3>
+            <p>Toppers con el personaje o la frase de tu celebración, para coronar la torta.</p>
+            <a class="btn btn-wa" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20quiero%20un%20topper%20para%20torta.%20%C2%BFMe%20cuentas%20m%C3%A1s%3F" target="_blank" rel="noopener">Lo quiero</a>
+          </div>
+        </article>
+        <article class="door">
+          <figure class="slot card-img" data-slot="poleras" data-alt="Poleras y tazas estampadas con diseño propio">
+            <div class="slot-hint"><b>Tu imagen aquí</b><small>Poleras y tazas, 16:10</small></div>
+          </figure>
+          <div class="door-body">
+            <h3>Poleras y tazas</h3>
+            <p>Estampo tu diseño, tu frase o tu personaje en poleras y tazas, para regalar o para ti.</p>
+            <a class="btn btn-wa" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20me%20interesan%20las%20poleras%20y%20tazas%20estampadas.%20%C2%BFMe%20cuentas%20m%C3%A1s%3F" target="_blank" rel="noopener">Lo quiero</a>
+          </div>
+        </article>
+        <article class="door">
+          <figure class="slot card-img" data-slot="cositas3d" data-alt="Cositas 3D hechas por mí">
+            <div class="slot-hint"><b>Tu imagen aquí</b><small>Piezas 3D impresas, 16:10</small></div>
+          </figure>
+          <div class="door-body">
+            <h3>Cositas 3D hechas por mí</h3>
+            <p>Piezas impresas en 3D: figuras, llaveros y detalles únicos para regalar o decorar.</p>
+            <a class="btn btn-wa" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20me%20interesan%20las%20piezas%203D%20impresas.%20%C2%BFMe%20cuentas%20m%C3%A1s%3F" target="_blank" rel="noopener">Lo quiero</a>
+          </div>
+        </article>
+      </div>
+      <div class="inv-cta">
+        <a class="btn btn-wa" href="https://wa.me/56932938800?text=Hola%20Yelioki%2C%20vi%20tus%20productos%20f%C3%ADsicos%20y%20quisiera%20hacer%20un%20pedido." target="_blank" rel="noopener">Hacer mi pedido por WhatsApp</a>
+        <p>Te cuento precios, tiempos y formas de entrega por WhatsApp.</p>
       </div>
     </div>
   </section>
@@ -632,6 +706,7 @@ var IMAGENES = {
   modelos3d: "modelos3d.jpg",    // tarjeta de modelos 3D (horizontal 16:10)
   recursos: "recursos.jpg",     // tarjeta de diseños y recursos (horizontal 16:10)
   yeli: "yeli.jpg",   // tu foto o ilustración (vertical 4:5)
+  fisinv: "fis-invitaciones.jpg", stickers: "stickers.jpg", toppers: "toppers.jpg", poleras: "poleras.jpg", cositas3d: "cositas3d.jpg",   // fotos de tus productos físicos (16:10)
   lira: ""           // Lira, la Guardiana (cuadrada, opcional)
 };
 
@@ -707,7 +782,16 @@ var IMAGENES = {
   var PASOS = {
     inicio: { dice: function () { return (nombre ? "¡Hola, " + nombre + "! " : "¡Hola! ") + "Soy Lira. Cuéntame, ¿qué te gustaría crear hoy?"; }, op: [
       ["Una invitación digital", "inv1"], ["Papelería para imprimir", "pap1"],
-      ["Un modelo 3D para imprimir", "d3"], ["Algo especial, a mi manera", "esp"] ] },
+      ["Un modelo 3D para imprimir", "d3"], ["Algo físico para mi fiesta", "fis1"], ["Algo especial, a mi manera", "esp"] ] },
+    fis1: { dice: "¡Qué lindo! Lo físico se siente distinto. ¿Qué te gustaría?", clave: "cosa", op: [
+      ["Invitaciones impresas", "fin_fis", "invitaciones impresas"], ["Stickers para cotillón", "fin_fis", "stickers para cotillón"],
+      ["Un topper para torta", "fin_fis", "un topper para torta"], ["Polera o taza estampada", "fin_fis", "una polera o taza estampada"],
+      ["Una pieza 3D impresa", "fin_fis", "una pieza 3D impresa"] ] },
+    fin_fis: { fin: true,
+      dice: function (d) { return "Entonces buscas " + d.cosa + ". Yelioki lo prepara a pedido: cuéntale el tema y la fecha de tu celebración y lo hacen juntas."; },
+      botones: function (d) { return [
+        ["Pedirlo por WhatsApp", wa(saludo("Quisiera pedir " + d.cosa + ".")), "btn btn-wa"],
+        ["Ver lo que hago en físico", "#fisicos", "btn btn-outline"] ]; } },
     inv1: { dice: "¡Qué bonito! ¿Para qué celebración es?", clave: "fiesta", op: [
       ["Un cumpleaños", "inv2", "cumpleaños"], ["Unos 15 años", "inv2", "15 años"], ["Una boda", "inv2", "boda"],
       ["Un baby shower", "inv2", "baby shower"], ["Otra celebración", "inv2", "celebración"] ] },
