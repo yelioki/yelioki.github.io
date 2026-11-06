@@ -697,12 +697,15 @@ var IMAGENES = {
   var NUM = "56932938800";
   var PAYHIP = "https://payhip.com/Yelioki", CULTS = "https://cults3d.com/@yelioki";
   function wa(t) { return "https://wa.me/" + NUM + "?text=" + encodeURIComponent(t); }
-  function saludo(t) { return "Hola, Yelioki. Lira me guió hasta aquí. " + t; }
+  /* Si la persona dejó su nombre en Universo Ka, Lira la saluda por su nombre */
+  var nombre = "";
+  try { nombre = (localStorage.getItem("nombreAvatar") || "").slice(0, 30); } catch (e) {}
+  function saludo(t) { return "Hola, Yelioki. " + (nombre ? "Soy " + nombre + ". " : "") + "Lira me guió hasta aquí. " + t; }
 
   /* Cada paso: lo que dice Lira y sus opciones [texto, destino, dato que se recuerda].
      Los pasos con "fin" muestran botones de acción. */
   var PASOS = {
-    inicio: { dice: "¡Hola! Soy Lira. Cuéntame, ¿qué te gustaría crear hoy?", op: [
+    inicio: { dice: function () { return (nombre ? "¡Hola, " + nombre + "! " : "¡Hola! ") + "Soy Lira. Cuéntame, ¿qué te gustaría crear hoy?"; }, op: [
       ["Una invitación digital", "inv1"], ["Papelería para imprimir", "pap1"],
       ["Un modelo 3D para imprimir", "d3"], ["Algo especial, a mi manera", "esp"] ] },
     inv1: { dice: "¡Qué bonito! ¿Para qué celebración es?", clave: "fiesta", op: [
